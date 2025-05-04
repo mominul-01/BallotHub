@@ -1,0 +1,64 @@
+<x-layout>
+    <x-slot:heading class="bg-gray-800 text-white">
+        Dashboard
+    </x-slot:heading>
+
+
+    <div class="py-12 ">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="  overflow-hidden border-white  rounded-md border-2 shadow-sm sm:rounded-lg">
+                <div class="py-12 space-y-10">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+
+                        {{-- Navigation Buttons --}}
+                        <div class="flex flex-wrap gap-5">
+                            <a href="/candidates" class=" rounded-md shadow px-5 py-3 text-white font-bold text-2xl  border-2 hover:border-blue-600 hover:bg-blue-600 hover:text-white transition">
+                                Manage Candidates
+                            </a>
+                            <a href="/voters" class=" rounded-md shadow px-5 py-3 text-white font-bold text-2xl  border-2 hover:border-blue-600 hover:bg-blue-600 hover:text-white transition ">
+                                Manage Voters
+                            </a>
+                        </div>
+
+                        {{-- Vote Statistics --}}
+                        <div>
+                            <h1 class="text-white text-3xl font-bold mb-4">Vote Statistics</h1>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                                @foreach ($stats as $stat)
+                                    <div class="  p-5 rounded-md bg-gray-500 shadow text-center">
+                                        <h2 class="text-white text-xl mb-2">{{ $stat['label'] }}</h2>
+                                        <p class="text-white text-2xl font-semibold">{{ $stat['value'] }}</p>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        {{--  // Candidates List --}}
+                        @foreach ($candidates as $position => $groupedCandidates)
+                            <div>
+                                <h2 class=" text-2xl text-white font-bold mb-4">{{ $position }}</h2>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                                    @foreach ($groupedCandidates as $candidate)
+                                        <div class=" bg-gray-400 rounded-md shadow p-5">
+                                            <div class="flex justify-center mb-3">
+                                                @if ($candidate->symbol)
+                                                    <img class="h-26 object-contain" src="{{ asset('storage/' . $candidate->symbol) }}" alt="Symbol">
+                                                @else
+                                                    <div class="h-16 w-16  flex items-center justify-center text-gray-700">N/A</div>
+                                                @endif
+                                            </div>
+                                            <h1 class="text-white  text-2xl font-semibold text-center">{{ $candidate->name }}</h1>
+                                            <p class="text-white text-center text-2xl">Total Vote : {{ $candidate->votes }}</p>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</x-layout>
