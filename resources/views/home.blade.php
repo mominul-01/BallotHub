@@ -12,7 +12,7 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="{{ route('vote.login') }}" class="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold shadow hover:bg-gray-100 transition">
+                <a href="{{ route('vote.login') }}" class="bg-white text-2xl text-orange-400 px-6 py-3 rounded-lg font-semibold shadow hover:bg-gray-100 transition">
                     Vote Now
                 </a>
 

@@ -103,16 +103,21 @@
         <h1 class="text-3xl font-bold tracking-tight ">{{ $heading }}</h1>
       </div>
     </header>
-    <main class="bg-[url({{'images/voting-system.png'}})] bg-cover bg-center bg-no-repeat min-h-screen">
+    {{-- <main class="  relative bg-[url({{'images/voting-system.png'}})] bg-cover bg-center bg-no-repeat min-h-screen"> --}}
 
+        <main class="relative min-h-screen">
 
-      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 bg-cover bg-center min-h-screen" >
+            <!-- Background image and overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="{{ asset('images/voting-system.png') }}" alt="Background" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+            </div>
 
-
-          {{ $slot }}
-
-      </div>
-    </main>
+            <!-- Content container -->
+            <div class="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 min-h-screen">
+                {{ $slot }}
+            </div>
+        </main>
   </div>
 
 

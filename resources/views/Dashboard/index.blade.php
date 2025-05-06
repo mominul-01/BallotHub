@@ -6,7 +6,7 @@
 
     <div class="py-12 ">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="  overflow-hidden border-white  rounded-md border-2 shadow-sm sm:rounded-lg">
+            <div class="   overflow-hidden border-white  rounded-md border-2 shadow-sm sm:rounded-lg">
                 <div class="py-12 space-y-10">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
@@ -25,9 +25,9 @@
                             <h1 class="text-white text-3xl font-bold mb-4">Vote Statistics</h1>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                                 @foreach ($stats as $stat)
-                                    <div class="  p-5 rounded-md bg-gray-500 shadow text-center">
+                                    <div class="  p-5 rounded-md  bg-[radial-gradient(#ffffff33_1px,#0f172a_1px)] bg-[size:20px_20px] shadow text-center">
                                         <h2 class="text-white text-xl mb-2">{{ $stat['label'] }}</h2>
-                                        <p class="text-white text-2xl font-semibold">{{ $stat['value'] }}</p>
+                                        <p class="text-white text-4xl font-bold">{{ $stat['value'] }}</p>
                                     </div>
                                 @endforeach
                             </div>
@@ -39,7 +39,7 @@
                                 <h2 class=" text-2xl text-white font-bold mb-4">{{ $position }}</h2>
                                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                                     @foreach ($groupedCandidates as $candidate)
-                                        <div class=" bg-gray-400 rounded-md shadow p-5">
+                                        <div class="  bg-[radial-gradient(#ffffff33_1px,#0f172a_1px)] bg-[size:20px_20px] rounded-md  p-5">
                                             <div class="flex justify-center mb-3">
                                                 @if ($candidate->symbol)
                                                     <img class="h-26 object-contain" src="{{ asset('storage/' . $candidate->symbol) }}" alt="Symbol">

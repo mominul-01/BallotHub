@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Candidate;
 use App\Models\Voters;
+use App\Services\TwilioVerifyService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session as FacadesSession;
 use Illuminate\Support\Facades\Session;
@@ -14,6 +15,21 @@ class VotingController extends Controller
     public function showLogin() {
         return view('vote.login');
     }
+
+
+// public function sendOtp(Request $request, TwilioVerifyService $twilio)
+// {
+//     // return $request  ->all();
+
+//     $request->validate([
+//         'mobile' => 'required|numeric'
+//     ]);
+
+//     $twilio->sendOTP($request->mobile);
+//     session(['mobile' => $request->mobile]);
+
+//     return redirect()->route('vote.otp')->with('status', 'OTP sent to your phone.');
+// }
 
     public function sendOtp(Request $request) {
         $request->validate([
@@ -63,6 +79,21 @@ class VotingController extends Controller
 
 
     }
+//     public function verifyOtp(Request $request, TwilioVerifyService $twilio)
+// {
+//     $request->validate([
+//         'otp' => 'required|numeric',
+//     ]);
+
+//     $verification = $twilio->checkVerificationCode(session('mobile'), $request->otp);
+
+//     if ($verification->status === 'approved') {
+//         // OTP matched
+//         return redirect()->route('vote.cast-vote')->with('success', 'OTP verified successfully!');
+//     }
+
+//     return back()->withErrors(['otp' => 'Invalid OTP.']);
+// }
 
 
     public function showVotingPage() {

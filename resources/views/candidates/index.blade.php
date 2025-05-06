@@ -58,8 +58,8 @@
             </div>
 
             <!-- Candidate List -->
-            <div class=" overflow-hidden shadow-sm sm:rounded-lg p-6">
-                <h3 class="text-xl font-bold mb-4 text-white">Candidate Info</h3>
+            <div class=" bg-[radial-gradient(#ffffff33_1px,#0f172a_1px)] bg-[size:20px_20px] overflow-hidden shadow-sm sm:rounded-lg p-6">
+                <h3 class="text-2xl font-bold mb-4 text-white">Candidate Info</h3>
 
                 <table class="w-full text-left border-collapse">
                     <thead>

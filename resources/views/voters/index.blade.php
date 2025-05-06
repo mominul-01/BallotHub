@@ -65,7 +65,7 @@
             </div>
 
             <!-- Voter  List -->
-            <div class=" overflow-hidden shadow-sm sm:rounded-lg p-6">
+            <div class="  bg-[radial-gradient(#ffffff33_1px,#0f172a_1px)] bg-[size:20px_20px] overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <h3 class="text-2xl text-white font-bold mb-4">Voter Info</h3>
 
                 <table class="w-full text-left border-collapse">

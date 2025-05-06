@@ -19,7 +19,7 @@
             <h2 class="text-2xl font-bold mb-4 text-white">{{ $position }}</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 @foreach ($groupedCandidates as $candidate)
-                    <label class="cursor-pointer block rounded-md bg-blue-400 shadow p-5 border-2 hover:border-blue-600 transition
+                    <label class="cursor-pointer block rounded-md bg-[radial-gradient(#ffffff33_1px,#0f172a_1px)] bg-[size:20px_20px] shadow p-5 border-2 hover:border-blue-600 transition
                         @if(old("selected.$position") == $candidate->id) border-blue-600 @else border-transparent @endif">
                         <div class="flex justify-center mb-3">
                             @if ($candidate->symbol)
@@ -31,7 +31,7 @@
                         <h1 class="text-2xl text-white font-semibold text-center">{{ $candidate->name }}</h1>
 
                         <div class="text-center mt-2 ">
-                            <input type="radio" name="selected[{{ $position }}]" value="{{ $candidate->id }}" class="w-5 h-5 form-radio p-3">
+                            <input type="radio" name="selected[{{ $position }}]" value="{{ $candidate->id }}" class="w-5 h-5 form-radio p-4  checked:black checked:border-transparent focus:outline-none transition duration-200">
                         </div>
                     </label>
                 @endforeach
