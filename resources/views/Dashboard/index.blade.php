@@ -33,7 +33,7 @@
                             </div>
                         </div>
 
-                        {{--  // Candidates List --}}
+                         {{-- // Candidates List
                         @foreach ($candidates as $position => $groupedCandidates)
                             <div>
                                 <h2 class=" text-2xl text-white font-bold mb-4">{{ $position }}</h2>
@@ -53,7 +53,33 @@
                                     @endforeach
                                 </div>
                             </div>
+                        @endforeach --}}
+                        {{-- Candidates List --}}
+                        @foreach ($candidates as $position => $groupedCandidates)
+                            <div class="mb-12">
+                                <h2 class="text-2xl text-white font-bold mb-6">{{ $position }}</h2>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                                    @foreach ($groupedCandidates as $candidate)
+                                        <div class="bg-[radial-gradient(#ffffff33_1px,#0f172a_1px)] bg-[size:20px_20px] rounded-2xl shadow-lg p-5 text-center border border-gray-700 hover:border-blue-600 transition">
+
+                                             <div class="relative">
+                                                @if ($candidate->symbol)
+                                                    <img src="{{ asset('storage/' . $candidate->symbol) }}" alt="{{ $candidate->name }}" class="w-full h-56 object-cover">
+                                                @else
+                                                    <div class="w-full h-56 bg-gray-200 flex items-center justify-center text-gray-600 text-lg">N/A</div>
+                                                @endif
+                                                <span class="absolute top-2 left-2 bg-yellow-400 text-xs font-semibold px-3 py-1 rounded-full">{{$position}}</span>
+                                            </div>
+
+                                           <h1 class="text-white  text-2xl font-semibold text-center">{{ $candidate->name }}</h1>
+                                            <p class="text-white text-center text-2xl">Total Vote : {{ $candidate->votes }}</p>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
                         @endforeach
+
 
                     </div>
                 </div>
